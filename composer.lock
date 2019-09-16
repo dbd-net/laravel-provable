@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a81ea5a73ebc29fdd013d76177a616e",
+    "content-hash": "6776e66b857a7dea54ffcfac3d308d59",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -379,6 +379,39 @@
                 "trusted proxy"
             ],
             "time": "2019-09-03T16:45:42+00:00"
+        },
+        {
+            "name": "gamebetr/provable",
+            "version": "1.0.0000",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gamebetr/provable.git",
+                "reference": "4b395e1766e180654110f40e5dfdc3e3af4251a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gamebetr/provable/zipball/4b395e1766e180654110f40e5dfdc3e3af4251a9",
+                "reference": "4b395e1766e180654110f40e5dfdc3e3af4251a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gamebetr\\Provable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Steve Harmeyer",
+                    "email": "sharmeyer@gamebetr.com"
+                }
+            ],
+            "description": "Package that provides the ability to create provably fair numbers and shuffles",
+            "time": "2019-09-16T21:07:57+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
