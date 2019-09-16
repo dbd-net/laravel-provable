@@ -12,7 +12,7 @@ There are a few steps to run in order to get the provable front end up and runni
 
 ```
 # first clone the repository
-git clone git@github.com:dbdnet/provable-laravel.git
+git clone git@github.com:gamebetr/provable-laravel.git
 
 # next, cd into the newly created project directory
 cd provable-laravel
