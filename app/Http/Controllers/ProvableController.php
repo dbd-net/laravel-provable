@@ -11,17 +11,10 @@ class ProvableController extends Controller
     {
         $clientSeed = $request->get('client_seed');
         $serverSeed = $request->get('server_seed');
-        $min = $request->get('min') ?? 0;
-        $max = $request->get('max') ?? 0;
-        $type = $request->get('type') ?? 'number';
+        $min = $request->get('min') ?? 1;
+        $max = $request->get('max') ?? 52;
+        $type = $request->get('type') ?? 'shuffle';
         $provable = Provable::init($clientSeed, $serverSeed, $min, $max, $type);
-        return view('provable', [
-            'clientSeed' => $clientSeed,
-            'serverSeed' => $serverSeed,
-            'min' => $min,
-            'max' => $max,
-            'type' => $type,
-            'provable' => $provable,
-        ]);
+        return view('provable', ['provable' => $provable]);
     }
 }
