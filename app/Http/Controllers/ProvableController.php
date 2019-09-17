@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Gamebetr\Provable\Provable;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class ProvableController extends Controller
 {
