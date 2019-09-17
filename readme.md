@@ -30,6 +30,6 @@ composer install
 php artisan serve
 ```
 
-If everything worked, you should now have a website running at (http://127.0.0.1:8000)
+If everything worked, you should now have a website running at [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 
