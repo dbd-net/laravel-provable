@@ -20,6 +20,9 @@ cd provable-laravel
 # next, copy the .env.example file to .env
 cp .env.example .env
 
+# generate the Laravel app key
+php artisan key:generate
+
 # now, install all of the composer dependencies
 composer install
 
