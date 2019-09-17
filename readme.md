@@ -1,10 +1,10 @@
 # Provably Fair
 
-This git project allows you to set up a [Laravel](https://laravel.com) based website that will allow you to validate provably fair results.
+This git project allows you to set up a [Laravel](https://laravel.com/) based website that will allow you to validate provably fair results.
 
 ## Prerequisites
 
-You must have php 7.2 installed along with composer.
+You must have php 7.2 installed along with [Composer](https://getcomposer.org/).
 
 ## Installation
 
