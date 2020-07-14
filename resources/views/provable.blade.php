@@ -10,10 +10,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;700&display=swap" rel="stylesheet"> 
         <style>
             body {font-family: 'Roboto Mono', monospace;padding-bottom:2rem;}
-            .title {font-weight:900;}
-            label {font-size:1.3rem;font-weight:900;margin:0;}
-            input, select {font-size:1.4rem !important;font-weight:400 !important;margin-bottom:2rem !important;}
-            .btn-submit {font-size:1.7rem;}
+            .title {font-weight:bold;}
+            #navbarToggleHow strong {color:rgba(255,255,255,0.7);}
+            label {font-weight:bold;margin:0;}
+            #results {margin-top:-3rem;border:none;}
+            #results a {font-weight:bold;color:#000;}
         </style>
         <title>Provably Fair Verification</title>
     </head>
@@ -32,7 +33,7 @@
         </nav>
 
         <div class="collapse" id="navbarToggleHow">
-            <div class="bg-dark p-4 pb-0 m-0">
+            <div class="bg-dark py-4 px-2">
                 <div class="container">
                     <div class="col">
                         <h4 class="text-white">What is Provably Fair?</h4>
@@ -40,28 +41,30 @@
                     </div>
                     <div class="col">
                         <h4 class="text-white">How It Works</h4>
-                        <p class="text-muted">At the start of a game you (the client) are auto-assigned a random seed that you can use or change to whatever you'd like. The game (the server) also generates a random seed which it keeps <em>private</em>. The client seed is then combined with the server seed and cryptographically hashed. This hashed version of the seed is shown to the client <em>before</em> a random part of the game takes place.</p>
+                        <p class="text-muted">At the start of a game you (<code>the client</code>) are auto-assigned a random seed that you can use or change to whatever you'd like. The game (<code>the server</code>) also generates a random seed which it keeps <em><strong>private</strong></em>. The client seed is then combined with the server seed and cryptographically hashed. This hashed version of the seed is shown to the client <em><strong>before</strong></em> a random part of the game takes place.</p>
                         <p class="text-muted">This hash can only be generated with these 2 pieces of information (client seed + server seed) and this hash will always produce the same outcome when ran through the publicly viewable algorithm.</p>
                         <p class="text-muted">After the game uses the random number the server seed (which was used in conjunction with the client seed to generate the hash) is revealed to the client. Once this is obtained the player can confirm that the server did indeed use this server seed in conjunction with the client seed to generate the hash from the previous round.</p>
                         <p class="text-muted">This same process repeats over and over again before and after each round. Before each round you will be presented with the hash which will be used for the next round. After that round you will be revealed the server seed used to generate that hash. If the hashes match, and the result is the same result you got in the game, then the outcome was provably fair.</p>
+                        <h6 class="text-white">Types and Min/Max</h6>
+                        <p class="text-muted">Different games require a different random number <code>type</code>. For example, a dice game may require a single <code>number</code> between <em><strong>0</strong></em> and <em><strong>10,000</strong></em> where a card game like Blackjack may require a <code>shuffle</code> which returns <em><strong>52</strong></em> random values which are then assigned to each unique card. For this reason there are different types of provably fair numbers which can be generated. Each type has a <code>minimum value</code> and a <code>maximum value</code> to be set depending on the range of values desired.</p>
                     </div>
                     <div class="col">
                         <h4 class="text-white">How To Verify</h4>
-                        <p class="text-muted">Use the form below to verify a dataset of provably fair information. This data will run through the PHP algorithm found in the source code in the <a href="https://github.com/gamebetr/provable/blob/master/src/Provable.php">Github <em>provable</em> repository</a>. This is the exact same source code which is used to run this website. You can install this same website locally by following the instructions on the <a href="https://github.com/gamebetr/provable-laravel">Github <em>provable-laravel</em> repository</a>.</p>
+                        <p class="text-muted">Use the form below to verify a dataset of provably fair information. This data will run through the <code>PHP</code> algorithm found in the source code in the <a href="https://github.com/gamebetr/provable/blob/master/src/Provable.php">Github <em>provable</em> repository</a>. This is the exact same source code which is used to run this website. You can install this same website locally by following the instructions on the <a href="https://github.com/gamebetr/provable-laravel">Github <em>provable-laravel</em> repository</a>.</p>
                         <p class="text-center"><a href="https://github.com/gamebetr" class="btn btn-primary"><i class="fab fa-github"></i> Get Source Code</a></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-dark p-5">
-            <div class="container">
-                <div class="card">
+        <div class="bg-dark py-5 px-2">
+            <div class="container pb-4">
+                <div class="card mb-5">
                     <div class="card-header"><h4 class="my-0">Verify</h4></div>
                     <div class="card-body p-5">
                         <form>
                             <div class="row">
-                                <div class="col">
+                                <div class="col-md">
                                     <div class="form-group">
                                         <label for="type">Type</label>
                                         <select name="type" id="type" class="form-control">
@@ -71,13 +74,13 @@
                                     </div>
                                 </div>
 
-                                <div class="col">
+                                <div class="col-md">
                                     <div class="form-group">
                                         <label for="min">Minimum Value</label>
                                         <input type="number" name="min" id="min" class="form-control" value="{{ $provable->getMin() }}">
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-md">
                                     <div class="form-group">
                                         <label for="max">Maximum Value</label>
                                         <input type="number" name="max" id="max" class="form-control" value="{{ $provable->getMax() }}">
@@ -100,7 +103,7 @@
                             </div>
                             <div class="row mt-5">
                                 <div class="col">
-                                    <button type="submit" class="btn btn-lg btn-primary btn-submit"><i class="fas fa-arrow-down"></i> Get Results</button>
+                                    <button type="submit" class="btn btn-lg btn-primary btn-submit">Get Results <i class="fas fa-arrow-down"></i></button>
                                 </div>
                             </div>
                         </form>
@@ -109,8 +112,12 @@
             </div>
         </div>
         <div class="container">
-            <h2 id="results" class="title pt-5">Results</h2>
-            <ul class="list-group">
+            <ul id="results" class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#results"><h4>Results</h4></a>
+                </li>
+            </ul>
+            <ul class="list-group mt-5">
                 @foreach((array) $provable->results() as $result)
                     <li class="list-group-item list-group-item-success">{{ $result }}</li>
                 @endforeach
