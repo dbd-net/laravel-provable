@@ -37,7 +37,7 @@
                 <div class="container">
                     <div class="col">
                         <h4 class="text-white">What is Provably Fair?</h4>
-                        <p class="text-muted">Provably fair is a way to prove that a randomly generated number used in a game is not manipulated.</p>
+                        <p class="text-muted">Provably fair is a way to prove that a randomly generated number (or group of numbers) used in a game is not manipulated.</p>
                     </div>
                     <div class="col">
                         <h4 class="text-white">How It Works</h4>
