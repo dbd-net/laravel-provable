@@ -21,7 +21,7 @@
     <body>
     
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><h2 class="title m-2">>_ProvablyFair.co</h2></a>
+            <a class="navbar-brand" href="/"><h2 class="title m-2">>_ProvablyFair.co</h2></a>
             <form class="form-inline">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#navbarToggleHow" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">How It Works</button>
@@ -41,10 +41,9 @@
                     </div>
                     <div class="col">
                         <h4 class="text-white">How It Works</h4>
-                        <p class="text-muted">At the start of a game you (<code>the client</code>) are auto-assigned a random seed that you can use or change to whatever you'd like. The game (<code>the server</code>) also generates a random seed which it keeps <em><strong>private</strong></em>. The client seed is then combined with the server seed and cryptographically hashed. This hashed version of the seed is shown to the client <em><strong>before</strong></em> a random part of the game takes place.</p>
-                        <p class="text-muted">This hash can only be generated with these 2 pieces of information (client seed + server seed) and this hash will always produce the same outcome when ran through the publicly viewable algorithm.</p>
-                        <p class="text-muted">After the game uses the random number the server seed (which was used in conjunction with the client seed to generate the hash) is revealed to the client. Once this is obtained the player can confirm that the server did indeed use this server seed in conjunction with the client seed to generate the hash from the previous round.</p>
-                        <p class="text-muted">This same process repeats over and over again before and after each round. Before each round you will be presented with the hash which will be used for the next round. After that round you will be revealed the server seed used to generate that hash. If the hashes match, and the result is the same result you got in the game, then the outcome was provably fair.</p>
+                        <p class="text-muted">At the start of a game you (<code>the client</code>) are auto-assigned a random seed that you can use or change to whatever you'd like. The game (<code>the server</code>) also generates a random seed which it keeps <em><strong>private</strong></em>. The server seed is then cryptographically hashed and shown to the client <em><strong>before</strong></em> a game round takes place.</p>
+                        <p class="text-muted">After the game round takes place the server seed (which was used to generate the hash) is revealed to the client. Once this is obtained the player can confirm that the server did indeed use this server seed to generate the hash from the previous round. Additionally, the client seed was used in conjunction with the server seed to generate the results that were used for that round, as evidenced by both the client seed and server seed producing the exact same result that was used in the game.</p>
+                        <p class="text-muted">This same process repeats over and over again before and after each round. Before each round you will be presented with the hashed server seed which will be used for the next round. After that round you will be revealed the server seed used to generate that hash. If the hashes match, and the result is the same result you got in the game, then the outcome was provably fair.</p>
                         <h6 class="text-white">Types and Min/Max</h6>
                         <p class="text-muted">Different games require a different random number <code>type</code>. For example, a dice game may require a single <code>number</code> between <em><strong>0</strong></em> and <em><strong>10,000</strong></em> where a card game like Blackjack may require a <code>shuffle</code> which returns <em><strong>52</strong></em> random values which are then assigned to each unique card. For this reason there are different types of provably fair numbers which can be generated. Each type has a <code>minimum value</code> and a <code>maximum value</code> to be set depending on the range of values desired.</p>
                     </div>
